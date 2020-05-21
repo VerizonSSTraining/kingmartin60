@@ -15,7 +15,7 @@ criteria:
     pattern: "jira:issue_(created|updated)"
   trigger.body.issue.fields.labels:
     type: contains
-    pattern: "mdn"
+    pattern: "kingmartin60"
   trigger.body.issue.fields.status.name:
     type: eq
     pattern: Backlog
