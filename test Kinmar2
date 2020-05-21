@@ -1,0 +1,29 @@
+---
+name: handle-natt-alert
+description: Handle NATT alert from jira
+enabled: true
+
+trigger:
+  type: core.st2.webhook
+  parameters:
+      url: "ss_training/handle-jira-natt-alert"
+
+# only execute for webhook events for issues (updated or created) that have an "mdn" label and are in the backlog
+criteria:
+  trigger.body.webhookEvent: 
+    type: regex
+    pattern: "jira:issue_(created|updated)"
+  trigger.body.issue.fields.labels:
+    type: contains
+    pattern: "mdn"
+  trigger.body.issue.fields.status.name:
+    type: eq
+    pattern: Backlog
+
+
+
+
+action:
+    ref: ss_training.handle-natt-alert
+    parameters:
+      alert_data: "{{trigger.body}}"
