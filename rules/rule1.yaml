@@ -1,0 +1,14 @@
+name: on_Hello_event1
+pack: kingmartin60
+description: Test rule to send for kingmartin60.event1.
+enabled: true
+trigger:
+    type: kingmartin60.event1
+action:
+    ref: kingmartin60.greet
+    parameters:
+        greeting: Hello
+            type: string
+            description: Greeting 
+            required: true
+            position: 1
