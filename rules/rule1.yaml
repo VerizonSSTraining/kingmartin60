@@ -8,7 +8,3 @@ action:
     ref: kingmartin60.greet
     parameters:
         greeting: Hello
-            type: string
-            description: Greeting 
-            required: true
-            position: 1
